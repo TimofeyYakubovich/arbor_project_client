@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Layout } from 'antd';
+import Navbar from './components/Navbar';
+import Events from './pages/Events';
+import AppRouter from './components/AppRouter';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { RoteNames } from './router';
 
 function App() {
+  const router = useNavigate()
+  const location = useLocation();
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Navbar/>
+      <Layout.Content>
+        <AppRouter/>
+        {/* <Events/> */}
+      </Layout.Content>
+    </Layout> 
   );
 }
 
